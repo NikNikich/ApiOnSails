@@ -1,5 +1,5 @@
 /**
- * Topic.js
+ * Like.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -8,17 +8,6 @@
 module.exports = {
 
   attributes: {
-    //description: Representation of the topic name
-    // example: My new Topic
-    name: {
-      type: 'string',
-      required: true,
-    },
-    //description: Representation of the topic description
-    // example: This topic for me wife
-    description: {
-      type: 'string',
-    },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
@@ -33,14 +22,11 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    //description: Messages this Topic
-    topicsMessage: {
-      collection: 'Message',
-      via: 'ownerMessage'
-    },
-    //description: Creator this topic
-    ownerTopic: {
+    ownerLike: {
       collection: 'User'
+    },
+    forMessage: {
+      collection: 'Message'
     },
   },
 

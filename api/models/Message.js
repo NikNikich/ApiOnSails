@@ -12,7 +12,10 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+    //description: text this message
+    text: {
+      type: 'string',
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -22,7 +25,15 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+  //description: Likes this Message
+    topicsMessage: {
+      collection: 'Like',
+      via: 'forMessage'
+    },
+    //description: Creator this topic
+    ownerTopic: {
+      collection: 'User'
+    },
   },
 
 };
