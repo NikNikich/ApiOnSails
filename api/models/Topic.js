@@ -8,6 +8,10 @@
 module.exports = {
 
   attributes: {
+   /* _id: {
+      type: 'string',
+      required: true,
+    },*/
     //description: Representation of the topic name
     // example: My new Topic
     name: {
@@ -36,11 +40,11 @@ module.exports = {
     //description: Messages this Topic
     topicsMessage: {
       collection: 'Message',
-      via: 'ownerMessage'
+      via: 'forTopic',
     },
     //description: Creator this topic
     ownerTopic: {
-      collection: 'User'
+      collection: 'User',
     },
   },
 
