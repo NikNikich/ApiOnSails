@@ -30,17 +30,21 @@ module.exports = {
     password: {
       type: 'string',
       required: true,
+      minLength:6,
     },
     //description: Full representation of the user\'s name,
     //example: Lisa Microwave van der Jenny
     username: {
       type: 'string',
       required: true,
+      unique: true,
+      minLength:4,
     },
     //description: 'user avatar as a file path.',
     //example: 'myApp/.tmp/uploads/file.jpg'
     avatar: {
       type: 'string',
+      defaultsTo:sails.config.custom.pathImage+'no.jpg',
     },
 
 
@@ -52,8 +56,10 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+   //========= I tried to use, but failed================
     //description: Likes this user
-    userLikes: {
+    /*userLikes: {
       collection: 'Like',
       via: 'ownerLike',
        },
@@ -66,7 +72,7 @@ module.exports = {
     userTopics: {
       collection: 'Topic',
       via: 'ownerTopic',
-      },
+      },*/
   },
 
 };

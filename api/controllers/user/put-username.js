@@ -4,11 +4,19 @@ module.exports = {
   friendlyName: 'Put username',
 
 
-  description: '',
+  description: 'change username',
 
 
   inputs: {
-
+    id: {
+      type: 'string',
+      required: true,
+    },
+    username: {
+      type: 'string',
+      required: true,
+      minLength:4,
+    },
   },
 
 
@@ -18,10 +26,16 @@ module.exports = {
 
 
   fn: async function (inputs) {
-
-    // All done.
-    return{
-      name:"user-usern-put",
+    let updateUser= await User.updateOne({id:inputs.id})
+      .set({
+        username: inputs.username,
+      });
+    // sails.log('upd',updateUser);
+    if(updateUser) {
+      return this.res.ok();
+    } else return {
+      statusCode: 409,
+      description:"Not update check id or username",
     };
 
   }

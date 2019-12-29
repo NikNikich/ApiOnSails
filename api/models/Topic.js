@@ -8,10 +8,7 @@
 module.exports = {
 
   attributes: {
-   /* _id: {
-      type: 'string',
-      required: true,
-    },*/
+
     //description: Representation of the topic name
     // example: My new Topic
     name: {
@@ -22,6 +19,7 @@ module.exports = {
     // example: This topic for me wife
     description: {
       type: 'string',
+      defaultsTo:'User not write description',
     },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
@@ -38,13 +36,14 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     //description: Messages this Topic
-    topicsMessage: {
+    /*topicsMessage: {
       collection: 'Message',
       via: 'forTopic',
-    },
+    },*/
     //description: Creator this topic
-    ownerTopic: {
-      collection: 'User',
+    idUser: {
+      type: 'string',
+      required: true,
     },
   },
 

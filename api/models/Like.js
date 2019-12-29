@@ -8,10 +8,6 @@
 module.exports = {
 
   attributes: {
-    /*_id: {
-      type: 'string',
-      required: true,
-    },*/
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
@@ -25,11 +21,13 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    ownerLike: {
-      collection: 'User'
+    idUser: {
+      type: 'string',
+      required: true,
     },
-    forMessage: {
-      collection: 'Message'
+    idMessage: {
+      type: 'string',
+      required: true,
     },
   },
 

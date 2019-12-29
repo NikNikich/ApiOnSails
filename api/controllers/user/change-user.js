@@ -4,11 +4,20 @@ module.exports = {
   friendlyName: 'Change user',
 
 
-  description: '',
+  description: 'user authorization',
 
 
   inputs: {
-
+    email: {
+      type: 'string',
+      required: true,
+      isEmail: true,
+    },
+    password: {
+      type: 'string',
+      required: true,
+      minLength:6,
+    },
   },
 
 
@@ -18,11 +27,23 @@ module.exports = {
 
 
   fn: async function (inputs) {
-
-    // All done.
-    return{
-      name:"user-change",
+    let userGet=await User.find({
+      where: {
+        email:inputs.email,
+        password:inputs.password
+      },
+    });
+    if(userGet.length<1) {
+      return {
+        statusCode: 409,
+        description: 'Not Found',
+      };
+    } else return{
+      statusCode: 200,
+      description: 'OK',
+      user:userGet[0],
     };
+
 
   }
 
