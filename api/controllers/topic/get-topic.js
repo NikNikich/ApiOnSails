@@ -4,14 +4,19 @@ module.exports = {
   friendlyName: 'Get topic',
 
 
-  description: 'Gives a list with possible pagination',
+  description: 'Gives a list topics with possible pagination',
 
 
   inputs: {
-    page:{ type: 'number',},
+    page:{
+      type: 'number',
+      min:1,
+    },
     limit:{
       type: 'number',
-      defaultsTo:10,}
+      defaultsTo:10,
+      min:1,
+    }
   },
 
 

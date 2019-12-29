@@ -25,7 +25,7 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    idTopic: {
+    topicId: {
       type: 'string',
       required: true,
     },
@@ -35,7 +35,7 @@ module.exports = {
       via: 'forMessage'
     },*/
     //description: Creator this topic
-    idUser: {
+    userId: {
       type: 'string',
       required: true,
     },

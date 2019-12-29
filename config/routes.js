@@ -22,6 +22,6 @@ module.exports.routes = {
   'POST /api/message':                         { action: 'message/post-message' },
   'DELETE /api/message/:id':                   { action: 'message/delete-message' },
   'PUT /api/message/:id':                      { action: 'message/put-message' },
-  'POST /api/like:/id':                        { action: 'like/post-like' },
-  'DELETE /api/like/:id':                      { action: 'like/delete-like' },
+  'POST /api/like/:messageId':                 { action: 'like/post-like' },
+  'DELETE /api/like/:messageId':               { action: 'like/delete-like' },
 };

@@ -41,7 +41,7 @@ module.exports = {
     } else {
       let setTopic={
         name:inputs.name,
-        idUser:userTopic.id,
+        userId:userTopic.id,
       };
       if(inputs.description){
         setTopic.description=inputs.description;

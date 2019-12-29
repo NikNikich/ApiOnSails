@@ -39,7 +39,7 @@ module.exports = {
   fn: async function (inputs) {
     let thisTopic=await Topic.find({
       where: { id: inputs.id,
-        idUser:inputs.userId
+        userId:inputs.userId
       }
     });
    // sails.log('topicowner',thisTopic);

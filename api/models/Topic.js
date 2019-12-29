@@ -41,7 +41,7 @@ module.exports = {
       via: 'forTopic',
     },*/
     //description: Creator this topic
-    idUser: {
+    userId: {
       type: 'string',
       required: true,
     },
