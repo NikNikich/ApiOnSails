@@ -10,7 +10,7 @@
 
 module.exports.routes = {
   'POST /api/user':                            { action: 'user/add-user' },
-  'GET /api/user':                             { action: 'user/change-user' },
+  'GET /api/user':                             { action: 'user/verify-user' },
   'PUT /api/user/password/:id':                { action: 'user/put-password' },
   'PUT /api/user/username/:id':                { action: 'user/put-username' },
   'PUT /api/user/avatar/:id':                  { action: 'user/put-avatar' },

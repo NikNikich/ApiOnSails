@@ -46,7 +46,6 @@ module.exports = {
       if(inputs.description){
         setTopic.description=inputs.description;
       }
-    //  sails.log('set',setTopic);
       let newTopic = await Topic.create(setTopic).fetch();
       if (newTopic) {
         return {

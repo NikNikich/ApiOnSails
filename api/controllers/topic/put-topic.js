@@ -8,7 +8,6 @@ module.exports = {
 
 
   inputs: {
-    //id topic
     id: {
       type: 'string',
       required: true,
@@ -42,7 +41,6 @@ module.exports = {
         userId:inputs.userId
       }
     });
-   // sails.log('topicowner',thisTopic);
     if(thisTopic.length<1) return {
       statusCode: 409,
       description: 'Not found Topic. Maybe you are not the owner',

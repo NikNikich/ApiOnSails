@@ -8,7 +8,6 @@ module.exports = {
 
 
   inputs: {
-    //id Message
     id: {
       type: 'string',
       required: true,
@@ -26,15 +25,6 @@ module.exports = {
 
 
   fn: async function (inputs) {
-   /* let thisMessage=await Message.find({
-      where: { id: inputs.id,
-        userId:inputs.userId
-      }
-    });
-    if(thisMessage.length<1) return {
-      statusCode: 409,
-      description: 'Not found Message. Maybe you are not the owner',
-    };*/
     let delMessage=await Message.destroy({
       id: inputs.id,
       userId:inputs.userId,

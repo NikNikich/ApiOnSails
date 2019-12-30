@@ -8,7 +8,6 @@ module.exports = {
 
 
   inputs: {
-//id Message
     id: {
       type: 'string',
       required: true,

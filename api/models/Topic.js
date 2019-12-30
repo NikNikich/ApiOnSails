@@ -35,11 +35,6 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    //description: Messages this Topic
-    /*topicsMessage: {
-      collection: 'Message',
-      via: 'forTopic',
-    },*/
     //description: Creator this topic
     userId: {
       type: 'string',

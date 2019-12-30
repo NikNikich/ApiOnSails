@@ -29,11 +29,6 @@ module.exports = {
       type: 'string',
       required: true,
     },
-  //description: Likes this Message
-   /* likesMessage: {
-      collection: 'Like',
-      via: 'forMessage'
-    },*/
     //description: Creator this topic
     userId: {
       type: 'string',

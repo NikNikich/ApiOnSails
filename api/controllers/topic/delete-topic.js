@@ -25,21 +25,14 @@ module.exports = {
 
 
   fn: async function (inputs) {
-  /*  let thisTopic=await Topic.find({
-      where: { id: inputs.id,
-        userId:inputs.userId
-      }
-    });
-    sails.log('topicowner',thisTopic);
-    if(thisTopic.length<1) return {
-      statusCode: 409,
-      description: 'Not found Topic. Maybe you are not the owner',
-    };*/
     let delTopic=await Topic.destroy({
       id: inputs.id,
       userId:inputs.userId,
     }).fetch();
     if(delTopic.length>0) {
+      await Message.destroy({
+        topicId:delTopic[0].id,
+      });
       return {
         statusCode: 200,
         description:"Ok",

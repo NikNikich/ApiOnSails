@@ -30,7 +30,6 @@ module.exports = {
       .set({
         username: inputs.username,
       });
-    // sails.log('upd',updateUser);
     if(updateUser) {
       return this.res.ok();
     } else return {

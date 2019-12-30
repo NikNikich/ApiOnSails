@@ -8,35 +8,33 @@ module.exports = {
 
 
   inputs: {
-      id: {
-        type: 'string',
-        required: true,
-      },
+    id: {
+      type: 'string',
+      required: true,
+    },
     password: {
       type: 'string',
       required: true,
-      minLength:6,
+      minLength: 6,
     },
   },
 
 
-  exits: {
-
-  },
+  exits: {},
 
 
   fn: async function (inputs) {
-   let updateUser= await User.updateOne({id:inputs.id})
-     .set({
-       password: inputs.password
-     });
-   // sails.log('upd',updateUser);
-      if(updateUser) {
-        return this.res.ok();
-      } else return {
-          statusCode: 409,
-          description:"Not update check id or password",
-        };
+    let updateUser = await User.updateOne({id: inputs.id})
+      .set({
+        password: inputs.password
+      });
+    // sails.log('upd',updateUser);
+    if (updateUser) {
+      return this.res.ok();
+    } else return {
+      statusCode: 409,
+      description: "Not update check id or password",
+    };
 
   }
 

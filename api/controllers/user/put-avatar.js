@@ -12,10 +12,6 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    file: {
-      example: '===',
-      required: true,
-    },
   },
 
 
@@ -23,40 +19,38 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    inputs.file.upload({
-      maxBytes: 10000000
-    }, async function whenDone(err, uploadedFiles) {
-      if (err) {
-        return {
-          statusCode: 409,
-          description: err,
-        };
-      }
+    let getUser= await User.findOne({id:inputs.id});
+    if(!getUser) return {
+      statusCode: 409,
+      description:"Dont find user",
+    };
+    let reqFiles = this.req.file('file');
+    //Error and crash???
+   /* if (!reqFiles.hasOwnProperty('stream')) return {
+      statusCode: 409,
+      description: 'No file was uploaded',
+    };*/
+    let fileExt=reqFiles._files[0].stream.filename.split(".");
 
-      // If no files were uploaded, respond with an error.
-      if (uploadedFiles.length === 0) {
-        return {
-          statusCode: 409,
-          description: 'No file was uploaded',
-        };
-      }
-      // Generate a unique path where the avatar can be downloaded
-      let pathImage = sails.config.custom.pathImage + inputs.id + uploadedFiles[0].getExtension();
-
-      // Save the path where the avatar for a user can be accessed
-      let updateUser= await User.updateOne({id:inputs.id})
-        .set({
-          avatar: inputs.pathImage
-        });
-      // sails.log('upd',updateUser);
-      if(updateUser) {
-        return this.res.ok();
-      } else return {
-        statusCode: 409,
-        description:"Not update check id",
-      };
+    fileExt = fileExt.length > 1 ? fileExt.pop() : "";
+    let dirFile = require('path').resolve(sails.config.appPath, sails.config.custom.pathImage);
+    let pathImage = sails.config.custom.pathImage + inputs.id + '.' + fileExt;
+    let uploadedFiles = reqFiles.upload({
+      dirname:dirFile,
+      saveAs: inputs.id + '.' + fileExt,
+      maxBytes: 10000000,
     });
 
+    let updateUser = await User.updateOne({id: inputs.id})
+      .set({
+        avatar: pathImage,
+      });
+    if (updateUser) {
+      return this.res.ok();
+    } else return {
+      statusCode: 409,
+      description: "Not update check id",
+    };
 
   }
 
