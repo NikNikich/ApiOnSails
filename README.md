@@ -25,11 +25,11 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 -->
 # Application Description
 This is an implementation of a test task.
-####API for a hypothetical mobile application
+###API for a hypothetical mobile application
 ##functionals:
-  ####POST /api/user:            
+  ##POST /api/user:            
   New User Registration
-  #####Parameters:    
+  ###Parameters:    
   + email: type: 'string',
         required: true,
         unique: true,
@@ -43,65 +43,65 @@ This is an implementation of a test task.
         required: true,
         unique: true,
         minLength:4,
-  ##### Example:
+  ### Example:
      POST http://localhost:1337/api/user     
         send({ email: 'test@test1.com',username:'testik1', password: 'testik1' })     
-  ####GET /api/user:   
+  ##GET /api/user:   
   User authorization
-  #####Parameters:    
+  ###Parameters:    
   + email:type: 'string',
         required: true,
         isEmail: true,
   + password: type: 'string',
         required: true,
         minLength:6,
-  #####Example:    
+  ###Example:    
      GET http://localhost:1337/api/user?email=test@test.com&password=testik           
-  ####PUT /api/user/password/:id:
+  ##PUT /api/user/password/:id:
   Password change (recovery)
-  #####Parameters:   
+  ###Parameters:   
    + id:  type: 'string',
         required: true,
    + password: type: 'string',
         required: true,
         minLength: 6,
-   #####Example:
+   ###Example:
     PUT http://localhost:1337/api/user/password/5e0927e065fcf618b85a5701
            .send({ password: 'testikPassPut' })     
-  ####PUT /api/user/username/:id: 
+  ##PUT /api/user/username/:id: 
   Username change
-  #####Parameters:
+  ###Parameters:
    + id:  type: 'string',
         required: true,
    + username: type: 'string',
         required: true,
         minLength:4,
-  #####Example:
+  ###Example:
      PUT http://localhost:1337/api/user/username/5e0927e065fcf618b85a5701
           .send({ username: 'testikUsernamePut' })
-  ####PUT /api/user/avatar/:id:  
+  ##PUT /api/user/avatar/:id:  
   Upload avatars
-  #####Parameters:
+  ###Parameters:
   + id:  type: 'string',
        required: true,
   + file: file
          required: true,
-  #####Example:
+  ###Example:
      PUT http://localhost:1337/api/user/avatar/5e0927e065fcf618b85a5701
           .attach('file', 'custom/image/no.jpg')
-  ####GET /api/topic:  
+  ##GET /api/topic:  
   Viewing the list of topics on the forum (with page loading of topics)
-  #####Parameters: 
+  ###Parameters: 
   + page: type: 'number',
         min:1,
   + limit:type: 'number',
         defaultsTo:10,
         min:1,
-  #####Example:      
+  ###Example:      
     GET http:/localhost:1337/api/topic     
-  ####POST /api/topic:     
+  ##POST /api/topic:     
   Create new topic
-  #####Parameters: 
+  ###Parameters: 
   + userId:type: 'string',
         required: true,
   + name: type: 'string',
@@ -111,23 +111,23 @@ This is an implementation of a test task.
   + description:type: 'string',
         minLength:4,
         maxLength:400,
-  #####Example:  
+  ###Example:  
      POST http:/localhost:1337/api/topic
          send({ userId: '5e0927e065fcf618b85a5701',name:'testikTop', description: 'testikdesc' })     
-  ####DELETE /api/topic/:id: 
+  ##DELETE /api/topic/:id: 
   Delete your topic
-  #####Parameters: 
+  ###Parameters: 
   + id: type: 'string',
         required: true,
   + userId:{
         type: 'string',
         required: true,
-  #####Example:
+  ###Example:
       DELETE http:/localhost:1337/api/topic/5e093530b29ebc2350d980fd
         send({ userId: '5e0927e065fcf618b85a5701' })        
-  ####PUT /api/topic/:id:
+  ##PUT /api/topic/:id:
   Updating your theme
-  #####Parameters: 
+  ###Parameters: 
    + id:type: 'string',
         required: true,
    + userId:type: 'string',
@@ -139,12 +139,12 @@ This is an implementation of a test task.
    + description:type: 'string',
         minLength:4,
         maxLength:400,
-  #####Example: 
+  ###Example: 
      PUT http:/localhost:1337/api/topic/5e093530b29ebc2350d980fd
           send({ userId: '5e0927e065fcf618b85a5701',name:'testikTopPut', description: 'testikdescPut' })          
-  ####GET /api/message:   
+  ##GET /api/message:   
   Viewing messages in a topic (with pagination of messages)
-  #####Parameters: 
+  ###Parameters: 
   + page:type: 'number',
         min:1,
   + limit:type: 'number',
@@ -152,11 +152,11 @@ This is an implementation of a test task.
         min:1,
   + topicId:type: 'string',
         required: true,
-  #####Example: 
+  ###Example: 
     GET http:/localhost:1337/api/message?topicId=5e0935f233cfb32180d41403          
-  ####POST /api/message:     
+  ##POST /api/message:     
   Creating new messages   
-  #####Parameters: 
+  ###Parameters: 
    + text:type: 'string',
         required: true,
         minLength:2,
@@ -164,22 +164,22 @@ This is an implementation of a test task.
         required: true,
    + topicId:type: 'string',
         required: true,
-  #####Example:     
+  ###Example:     
     POST http:/localhost:1337/api/message
           send({ userId: '5e0927e065fcf618b85a5701',text:'testikTextMess', topicId: '5e0935f233cfb32180d41403' })
-  ####DELETE /api/message/:id: 
+  ##DELETE /api/message/:id: 
   Delete own messages  
-  #####Parameters: 
+  ###Parameters: 
    + id: type: 'string',
        required: true,
    + userId:type: 'string',
         required: true,
-  #####Example: 
+  ###Example: 
     DELETE http:/localhost:1337/api/message/5e093530b29ebc2350d980fd
           send({ userId: '5e0927e065fcf618b85a5701' })   
-  ####PUT /api/message/:id: 
+  ##PUT /api/message/:id: 
   Editing your own posts 
-  #####Parameters: 
+  ###Parameters: 
   + id:type: 'string',
      required: true,
   + userId:type: 'string',
@@ -187,27 +187,27 @@ This is an implementation of a test task.
   + text:type: 'string',
         required: true,
         minLength:2,
-  #####Example: 
+  ###Example: 
         PUT http:/localhost:1337/api/message/5e093530b29ebc2350d980fd'
               send({ userId: '5e0927e065fcf618b85a5701',text:'testikTextMessPut', description: 'testikdescPut' })
-  ####POST /api/like/:messageId:  
+  ##POST /api/like/:messageId:  
   Put "like" message
-  #####Parameters: 
+  ###Parameters: 
    + userId:type: 'string',
         required: true,
    + messageId:type: 'string',
         required: true,
-  #####Example:   
+  ###Example:   
     POST http:/localhost:1337/api/like/5e08c2c934dfd8168031460a
           send({ userId: '5e0927e065fcf618b85a5701'})
-  ####DELETE /api/like/:messageId:
+  ##DELETE /api/like/:messageId:
   Remove "like" from the message
-  #####Parameters: 
+  ###Parameters: 
    + userId:type: 'string',
           required: true,
    + messageId:type: 'string',
           required: true,
-  #####Example:   
+  ###Example:   
      DELETE http:/localhost:1337/api/like/5e08c2c934dfd8168031460a
         send({ userId: '5e0927e065fcf618b85a5701' })
         
